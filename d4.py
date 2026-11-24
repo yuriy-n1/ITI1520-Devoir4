@@ -1,30 +1,53 @@
-#Question 1
-""" 
-Cette fonction
-"""
-#transl() contrat de type: ({}, str) -> str 
-d = {}
+# Iman Baratov et Yuriy Neyra Alvarado
+# 2026-11-24
+# Ce programme contient nos réponses pour la complétion du «Devoir 4».
 
-def transl(d,s):
-  pass
+# Q1
+def transl(d, s): # (dict, str) -> str
+    cles = list(d.keys())
+    liste = list(d.values())
+    for i in range (len(d)):
+        if liste[i] == s:
+            return cles[i]
+    if s in d:
+        return d[s]
+    else:
+        return "Unknown"
 
+# Q2
+def setOp(list1, list2): # (liste, liste) -> liste
+    return set(list1 + list2)
 
-#Question 2
-""" 
-Cette fonction
-"""
-#setOp() contrat de type: ([], []) -> {}
+# Q3
+def matrixMinMax(matrix): # (liste[liste[int]]) -> int, int
+    valMin = float("inf")
+    valMax = float("-inf")
+    for i in range (len(matrix)):
+        for j in range (len(matrix[i])):
+            if matrix[i][j] < valMin:
+                valMin = matrix[i][j]
+            if matrix[i][j] > valMax:
+                valMax = matrix[i][j]
+    return valMin, valMax
 
-def setOp(list1, list2):
-  pass
+'''
+# test Q1
+d = {"apple": "pomme", "banana": "banane", "pear": "poire", "plum": "prune"}
+print(transl(d,"pear"))
+print(transl(d,"poire"))
+print(transl(d,"appricot"))
 
+# test Q2
+print()
+print(setOp([1,2,2,3],[2,-6,8,7]))
+print(setOp([],[1,4,2,4,6]))
+print(setOp([1,1,1,1],[]))
+print(setOp([1],[2,3,2,2]))
 
-#Question 3
-""" 
-Cette fonction
-"""
-#matrixMinMax() contrat de type: ([]) -> ()
-
-def matrixMinMax(m):
-  pass
-  
+# test Q3
+print()
+print(matrixMinMax([[1,5],[2,8]]))
+print(matrixMinMax([[1,5,10],[2,8,-1]]))
+print(matrixMinMax([[2,8,-1]]))
+print(matrixMinMax([[1],[1]]))
+'''
