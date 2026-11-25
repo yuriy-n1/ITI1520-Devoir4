@@ -1,10 +1,12 @@
-﻿def verifierLigne(grille, row, num):
+def verifierLigne(grille, row, num):
     '''
         (list, int, int) -> Bool
         Vérifier si la case à ajouter n'existe pas sur la ligne.
         Preconditions: grille est une reference a une matrice 9x9 qui contient déja des nombres de 1 à 9
     '''
-    # A COMPLETER
+    if num in grille[row]:
+        return False
+    return True
 
 def verifierCol(grille, col, num):
     '''
@@ -12,8 +14,12 @@ def verifierCol(grille, col, num):
             Vérifier si la case à ajouter n'existe pas sur la colonne.
             Preconditions: grille est une reference a une matrice 9x9 qui contient déja des nombres de 1 à 9
     '''
-    # A COMPLETER
 
+    for i in range(len(grille)):
+        if grille[i][col] == num:
+            return False
+    return True
+   
 def verifierSousGrille(grille, row, col, num):
     '''
             (list, int, int) -> Bool
@@ -21,15 +27,24 @@ def verifierSousGrille(grille, row, col, num):
             Preconditions: grille est une reference a une matrice 9x9 qui contient déja des nombres de 1 à 9
     '''
 
-    # A COMPLETER
+    debRow = (row // 3) * 3
+    debCol = (col // 3) * 3
+
+    for r in range(debRow, debRow + 3):
+        for c in range(debCol, debCol + 3):
+            if grille[r][c] == num:
+                return False
+    return True
 
 def verifierGagner(grille):
     '''(list) ->  bool
     * Preconditions: grille est une reference a une matrice 9x9 qui contient de nombres de 1 à 9
     * Verifie si la grille est completement remplie.
     '''
-    
-   # A COMPLETER
+    for row in grille:
+        if 0 in row:
+            return False
+    return True
   
 def verifierValide(grille, row, col, num):
    ''' (list, int, int, int) ->  bool
@@ -37,6 +52,6 @@ def verifierValide(grille, row, col, num):
    * Preconditions: tab est une reference a une matrice 9 x 9 qui contient des chiffres entre 1 et 9
    '''
    
-   # A COMPLETER
+   return verifierLigne(grille, row, num) and verifierCol(grille, col, num) and verifierSousGrille(grille, row, col, num)
    
 
