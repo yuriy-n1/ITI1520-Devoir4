@@ -3,6 +3,10 @@
 # Ce programme contient nos réponses pour la complétion du «Devoir 4».
 
 # Q1
+'''
+La fonction "transl" permet de traduire les mots dans le dictionnaire d'anglais au français ou du français à l'anglais.
+Si le mot n'éxiste pas dans le dictionnaire, la chaîne de caractères 'Unknown' est retournée.
+'''
 def transl(d, s): # (dict, str) -> str
     cles = list(d.keys())
     liste = list(d.values())
@@ -15,10 +19,17 @@ def transl(d, s): # (dict, str) -> str
         return "Unknown"
 
 # Q2
+'''
+La fonction 'setOp' enlève les valeurs dupliquées et renvoie une liste avec un ordre different.
+(Ordre croissant pour les nombres positifs et envoie les nombres negatives en arrière)
+'''
 def setOp(list1, list2): # (liste, liste) -> liste
     return set(list1 + list2)
 
 # Q3
+'''
+'matrixMinMax' nous renvoie les valeurs minimale et maximale d'une matrice.
+'''
 def matrixMinMax(matrix): # (liste[liste[int]]) -> int, int
     valMin = float("inf")
     valMax = float("-inf")
